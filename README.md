@@ -1,4 +1,4 @@
-# Out-of-distribution Neural Inference in Dynamical Ising Models
+# Out-of-distribution Neural Network Inference in Dynamical Ising Models
 
 Reconstructing interaction topology from Glauber magnetization trajectories, and diagnosing what neural networks actually learn under distribution shift
 
