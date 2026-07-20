@@ -43,7 +43,7 @@ ising-ood train --config configs/main_nc25.yaml
 ising-ood evaluate --config configs/eval_topology_ood.yaml
 ```
 
-## The idea in one picture
+## The idea
 
 The kinetic Ising model has interaction topology encoded by an adjacency matrix $A$,
 
@@ -90,18 +90,6 @@ The scientific criterion running through every experiment is:
 | Balanced-link control, $N_c=33$ (Fig. S4) | Removing the majority-class advantage (no-link baseline drops to 50.0%) still shows architecture-dependent degradation and density behavior | The sparse-link collapse of CNN-3 reflects an interplay between architectural bias and class prior, not architecture alone |
 
 These are manuscript-level results, reproduced by the evaluation modules described below; the CPU quickstart exercises the same code paths at a much smaller scale and is not expected to reproduce these numbers.
-
-### Questions raised during peer review
-
-**Does high OOD accuracy imply the model learned Glauber dynamics?** Not necessarily. The predicted-link-count diagnostic $\hat N_c$ shows that a model such as CNN-3 can maintain near-flat OOD accuracy purely by predicting very few links, exploiting the imbalance of the $N_c=25$ task (a no-link predictor already scores 62.1%). Apparent robustness must be checked against what graph the model actually outputs, not against accuracy alone.
-
-**Is the topology-shift result simply an artifact of task difficulty increasing with $N_L$?** No — the ID and topology-OOD trends move in *opposite* directions as $N_L$ increases. If both were purely difficulty effects, they would move together. The opposite dependence indicates that the two settings probe different capabilities: trajectory-level interpolation versus topology-level extrapolation.
-
-**Are low- and high-temperature shifts symmetric?** No. Lowering $T$ enhances magnetic ordering; topology-dependent correlations remain partly visible, and degradation is moderate. Raising $T$ suppresses ordering and directly erodes the dynamical signature of the interaction topology, which is a stronger and more physically grounded failure mode than a generic input-distribution shift.
-
-**Is $N_c=25$ representative, or does the majority no-link class drive every conclusion?** The Supplemental Material's balanced control at $N_c=33$ (no-link baseline exactly 50.0%) is included specifically to test this. It confirms that the sparse-link behavior of CNN-3 is shaped by the *interplay* between architecture and class prior, not by class imbalance alone.
-
-**Should this be read as "Transformers are simply better"?** No. The Transformer's density-preserving strategy yields the best ID accuracy but becomes fragile under shift, since many preserved links are placed incorrectly. No single architecture in this study demonstrates unambiguous transferable dynamics-to-structure inference; each implements a different data-driven prior.
 
 ### Training objective
 
