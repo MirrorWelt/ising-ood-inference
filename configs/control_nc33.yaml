@@ -1,0 +1,12 @@
+# Reproduces the Supplemental-Material balanced control: N_c = 33 links
+# (balanced, no-link baseline = 50.0%).
+dataset_mode: 33links
+model_type: transformer
+it_time: 1000
+num_lattices: 50
+total_samples: 35000
+num_epochs: 80
+batch_size: 32
+lr: 0.001
+weight_decay: 0.00001
+data_dir: ./data/lattice_datasets_33links

@@ -1,0 +1,12 @@
+# Reproduces the paper's main setting: N_c = 25 links (imbalanced, no-link
+# baseline = 41/66 = 62.1%).
+dataset_mode: nodes
+model_type: transformer
+it_time: 1000
+num_lattices: 50
+total_samples: 35000
+num_epochs: 80
+batch_size: 32
+lr: 0.001
+weight_decay: 0.00001
+data_dir: ./data/lattice_datasets_original

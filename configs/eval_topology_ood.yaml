@@ -1,0 +1,4 @@
+kind: topology_ood
+data_dir: ./data/lattice_datasets_original
+model_dir: ./results/saved_models
+out_csv: results/fig2_topology_ood.csv

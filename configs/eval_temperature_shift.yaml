@@ -1,0 +1,4 @@
+kind: temperature_shift
+data_dir: ./data/lattice_datasets_33links
+model_dir: ./results/saved_models
+out_csv: results/fig3a_temperature_shift.csv
